@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10121b">
+    <title>¡Gracias!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/animaciones.js') }}" defer></script>
+</head>
+<body>
+    <main class="container page-enter success-card">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <div class="eyebrow"><span class="status-dot"></span> RESPUESTA GUARDADA EN ESTA SESIÓN</div>
+        <h1 class="typewriter" data-text="¡Gracias, {{ nombre }}!">¡Gracias, {{ nombre }}!</h1>
+        <p class="intro">Nos contaste que uno de tus intereses es:</p>
+        <div class="interest-result">{{ interes }}</div>
+        <a href="{{ url_for('routes.index') }}" class="btn btn-link"><span>Volver al inicio</span><span aria-hidden="true">↗</span></a>
+        <p class="footnote">Puedes regresar y enviar otra respuesta cuando quieras.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10121b">
+    <title>Mis intereses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/animaciones.js') }}" defer></script>
+</head>
+<body>
+    <main class="container page-enter">
+        <div class="eyebrow"><span class="status-dot"></span> UN POCO SOBRE TI</div>
+        <h1 class="typewriter" data-text="¿Qué te gusta?">¿Qué te gusta?</h1>
+        <p class="intro">Cuéntanos tu nombre y elige uno de tus intereses favoritos.</p>
+
+        {% if error %}
+            <p class="error-message" role="alert">{{ error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('routes.enviar') }}" method="post" class="interest-form">
+            <label for="nombre">Tu nombre</label>
+            <input id="nombre" type="text" name="nombre" placeholder="Escribe tu nombre..." maxlength="80" autocomplete="name" required>
+
+            <label for="interes">Elige un interés</label>
+            <select id="interes" name="interes" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="Videojuegos">Videojuegos</option>
+                <option value="Música">Música</option>
+                <option value="Deportes">Deportes</option>
+                <option value="Series o películas">Series o películas</option>
+                <option value="Otros">Otros</option>
+            </select>
+
+            <button type="submit" class="btn"><span>Enviar respuestas</span><span aria-hidden="true">→</span></button>
+        </form>
+        <p class="footnote">Tus respuestas aparecerán en la siguiente pantalla.</p>
+    </main>
+</body>
+</html>
